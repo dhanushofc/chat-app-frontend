@@ -39,3 +39,13 @@ No `.env` file needed here.
 
 - **Ginkala Dhanush**  
   [GitHub Profile →](https://github.com/dhanushofc)
+  
+---
+
+## ⚠️ License & Usage
+
+❌ Unauthorized copying, modification, or commercial use of this code is strictly prohibited.
+
+This project is protected under the **CC BY-NC-ND 4.0 License**.
+
+© 2025 Ginkala Dhanush – For demo/learning only.
