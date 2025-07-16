@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 
+// ⚠️ Branding / warning in console
+console.warn("© 2025 Ginkala Dhanush – For demo/learning only.");
+
 // ✅ Connect to live backend hosted on Render (with proper options)
 const socket = io("https://chat-app-backend-dxyi.onrender.com", {
   transports: ["websocket"],
@@ -89,6 +92,11 @@ function App() {
       >
         Send
       </button>
+
+      {/* 🔻 Branding footer */}
+      <footer style={{ fontSize: '10px', textAlign: 'center', marginTop: '20px', opacity: 0.6 }}>
+        © 2025 Ginkala Dhanush – For demo/learning only.
+      </footer>
     </div>
   );
 }
