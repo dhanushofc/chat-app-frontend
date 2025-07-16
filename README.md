@@ -11,7 +11,7 @@ Deployed on **Vercel** and connected to a live backend via **WebSocket**.
 
 > Open in two tabs to test real-time messaging 🔁
 
-[▶️ Watch Demo](https://user-images.githubusercontent.com/your-chat-demo-url.mp4)
+[▶️ Watch Demo](https://github.com/dhanushofc/chat-app-frontend/issues/1#issue-3236780552)
 
 
 ---
