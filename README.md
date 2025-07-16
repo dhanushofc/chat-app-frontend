@@ -9,6 +9,8 @@ Deployed on **Vercel** and connected to a live backend via **WebSocket**.
 
 👉 [https://chat-app-frontend-liart-beta.vercel.app](https://chat-app-frontend-liart-beta.vercel.app)
 
+👉 https://github.com/dhanushofc/chat-app-frontend/assets/YOUR_USERNAME/chat-demo.mp4
+
 > Open in two tabs to test real-time messaging 🔁
 
 ---
