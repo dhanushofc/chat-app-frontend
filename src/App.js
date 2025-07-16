@@ -1,35 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 
-// ✅ Connect frontend (port 3000) to backend server (port 5000)
-const socket = io('http://localhost:5000');
+// ✅ Connect to live backend hosted on Render (with proper options)
+const socket = io("https://chat-app-backend-dxyi.onrender.com", {
+  transports: ["websocket"],
+  withCredentials: true,
+});
 
 function App() {
-  // 🧠 message = current input, messages = chat history
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
 
-  // ✅ Receive messages from backend
   useEffect(() => {
-    // Function to handle incoming message
+    // 🟢 Show in console when connected
+    socket.on("connect", () => {
+      console.log("✅ Connected to backend!");
+    });
+
+    // 📥 Listen for incoming messages
     const handleMessage = (msg) => {
       setMessages((prev) => [...prev, msg]);
     };
 
-    // 🟢 Register event listener ONCE
     socket.on('receiveMessage', handleMessage);
 
-    // 🔴 Cleanup function to remove duplicate listener on re-renders/unmount
+    // 🔴 Cleanup on unmount to avoid duplicate listeners
     return () => {
       socket.off('receiveMessage', handleMessage);
+      socket.disconnect();
     };
   }, []);
 
-  // ✅ Send message to backend
+  // 📤 Send message to backend
   const sendMessage = () => {
     if (message.trim()) {
-      socket.emit('sendMessage', message); // 📤 Send message to backend
-      setMessage(''); // Clear input box
+      socket.emit('sendMessage', message);
+      setMessage('');
     }
   };
 
@@ -37,7 +43,7 @@ function App() {
     <div style={{ padding: 20, fontFamily: 'Arial, sans-serif' }}>
       <h2>💬 Real-Time Chat App</h2>
 
-      {/* 📜 Message list */}
+      {/* 🗒️ Message list */}
       <div
         style={{
           height: '250px',
@@ -56,7 +62,7 @@ function App() {
         ))}
       </div>
 
-      {/* ✏️ Input + 🔘 Send Button */}
+      {/* ✏️ Input + Send button */}
       <input
         type="text"
         value={message}
